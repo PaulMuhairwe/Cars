@@ -8,7 +8,7 @@ function loadCarList() {
 
     // Make AJAX request to fetch car data
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "get_cars.php", true);
+    xhr.open("GET", "getcars.php", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {

@@ -1,25 +1,19 @@
 <?php
-require 'db.php'; // Assume you have a db.php file for database connection
+require 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Registration logic here
-    // Hash the password and store user into the database
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect and validate form data
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
+    $email = $_POST['email'];
+
+    // Insert the new user into the database
+    $sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute([$username, $password, $email]);
+
+    echo "User registered successfully!";
+    // Redirect to login page or home page here
 }
-
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <form action="register.php" method="post">
-        <h2>Register</h2>
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Register</button>
-        <p>Already registered? <a href="index.php">Login here</a></p>
-    </form>
-</body>
-</html>
