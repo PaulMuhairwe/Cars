@@ -13,13 +13,11 @@
     <div id="car-list"></div>
     <script src="script.js"></script>
 
-    <form action="register.php" method="post">
-        Username: <input type="text" name="username" required><br>
-        Password: <input type="password" name="password" required><br>
-        Email: <input type="email" name="email" required><br>
-        <input type="submit">
+    <form class="form-style">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit" class="button-style">Submit</button>
     </form>
-
 
 
     <form action="login.php" method="post">

@@ -1,6 +1,7 @@
 body{
-    background-color: aqua;
-    background-repeat: round;
+  background-image: url("css/Images/macqueen.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 h1{
